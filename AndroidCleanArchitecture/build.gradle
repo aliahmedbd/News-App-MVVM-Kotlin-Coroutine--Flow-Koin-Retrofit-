@@ -8,6 +8,7 @@ buildscript {
         materialVersion = '1.2.0'
         retrofitVersion = '2.9.0'
         okhttpLoggingVersion = '4.7.2'
+        navigationVersion = '2.3.3'
         truthVersion = '0.42'
         coroutinesVersion = "1.4.2"
     }
