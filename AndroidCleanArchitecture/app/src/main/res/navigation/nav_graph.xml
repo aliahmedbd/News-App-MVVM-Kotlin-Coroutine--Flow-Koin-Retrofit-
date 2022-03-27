@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.example.androidcleanarchitecture.ui.NewsFragment"
-        android:label="fragment_news"
+        android:label="Latest News"
         tools:layout="@layout/fragment_news" />
 </navigation>
