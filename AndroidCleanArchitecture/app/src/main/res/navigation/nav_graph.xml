@@ -10,4 +10,9 @@
         android:name="com.example.androidcleanarchitecture.ui.NewsFragment"
         android:label="Latest News"
         tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.example.androidcleanarchitecture.ui.FilterFragment"
+        android:label="fragment_filter"
+        tools:layout="@layout/fragment_filter" />
 </navigation>

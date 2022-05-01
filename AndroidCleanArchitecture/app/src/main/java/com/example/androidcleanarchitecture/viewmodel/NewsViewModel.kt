@@ -13,7 +13,7 @@ import retrofit2.Response
 class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
 
      val uiUpdates =
-        MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idel State"))
+        MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idle State"))
 
     suspend fun getNews() {
         uiUpdates.emit(ResponseModel.Loading())

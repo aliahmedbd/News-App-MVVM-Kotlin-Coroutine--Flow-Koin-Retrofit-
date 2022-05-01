@@ -16,7 +16,7 @@
             android:name=".ui.MainActivity"
             android:exported="true"
             android:label="Latest News"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

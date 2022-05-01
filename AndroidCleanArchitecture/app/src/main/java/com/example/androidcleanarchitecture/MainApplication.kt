@@ -9,6 +9,10 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        initKoin()
+    }
+
+    private fun initKoin(){
         startKoin {
             androidContext(this@MainApplication)
             modules(appModule)
