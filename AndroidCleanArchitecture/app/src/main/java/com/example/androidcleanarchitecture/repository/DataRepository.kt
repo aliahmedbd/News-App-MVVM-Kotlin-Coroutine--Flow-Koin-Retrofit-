@@ -8,9 +8,9 @@ import retrofit2.Response
 
 class DataRepository(var networkModule: NetworkModule) {
 
-    suspend fun getNewsFromNetwork(): Flow<Response<NewsMainResponse>> {
+    suspend fun getNewsFromNetwork(category : String): Flow<Response<NewsMainResponse>> {
         return flow<Response<NewsMainResponse>> {
-            val response = networkModule.sourceOfNetwork().getNews()
+            val response = networkModule.sourceOfNetwork().getNews(category = category)
             emit(response)
         }
     }

@@ -15,9 +15,11 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
      val uiUpdates =
         MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idle State"))
 
-    suspend fun getNews() {
+    val category = MutableStateFlow<String>("")
+
+    suspend fun getNews(value : String) {
         uiUpdates.emit(ResponseModel.Loading())
-        dataRepo.getNewsFromNetwork().collect {
+        dataRepo.getNewsFromNetwork(value).collect {
             viewModelScope.launch {
                 if (it.isSuccessful)
                     uiUpdates.emit(ResponseModel.Success(it))
@@ -25,6 +27,10 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
                     uiUpdates.emit(ResponseModel.Error(it.message()))
             }
         }
+    }
+
+    suspend fun transmitCategory(value : String){
+        category.emit(value)
     }
 
 }

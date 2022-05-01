@@ -5,32 +5,32 @@
         android:id="@+id/grp_1"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/allnews"
+            android:id="@+id/itemAllnews"
             android:icon="@drawable/all_news"
             android:title="@string/all_news" />
 
         <item
-            android:id="@+id/business"
+            android:id="@+id/itemBusiness"
             android:icon="@drawable/business"
             android:title="@string/business" />
 
         <item
-            android:id="@+id/entertainment"
+            android:id="@+id/itemEntertainment"
             android:icon="@drawable/entertainment"
             android:title="@string/entertainment" />
 
         <item
-            android:id="@+id/health"
+            android:id="@+id/itemHealth"
             android:icon="@drawable/health"
             android:title="@string/health" />
 
         <item
-            android:id="@+id/sports"
+            android:id="@+id/itemSports"
             android:icon="@drawable/sports"
             android:title="@string/sports" />
 
         <item
-            android:id="@+id/technology"
+            android:id="@+id/itemTechnology"
             android:icon="@drawable/technology"
             android:title="@string/technology" />
     </group>

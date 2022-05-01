@@ -11,8 +11,9 @@ interface APIService {
     //https://newsapi.org/v2/everything?q=tesla&from=2022-02-26&sortBy=publishedAt&apiKey=83352fa505244e1c86f36d6af0ac59bb
     @GET(URL.GET_NEWS)
     public suspend fun getNews(
-        @Query("q") query: String? = "tesla",
+        @Query("q") query: String? = "all",
         @Query("from") from: String? = SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().time),
+        @Query("category") category: String? = "",
         @Query("sortBy") sortBy: String? = "publishedAt",
         @Query("apiKey") apiKey: String? = URL.apiKey
     ) : Response<NewsMainResponse>

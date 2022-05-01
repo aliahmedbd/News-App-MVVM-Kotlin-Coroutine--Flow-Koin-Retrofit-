@@ -1,14 +1,17 @@
 package com.example.androidcleanarchitecture.ui
 
-import android.app.ProgressDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidcleanarchitecture.R
 import com.example.androidcleanarchitecture.adapter.NewsListAdapter
@@ -19,14 +22,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class NewsFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsBinding
-    private val viewModel by viewModel<NewsViewModel>()
+    private val viewModel: NewsViewModel by sharedViewModel()
     private lateinit var newsListAdapter: NewsListAdapter
-    var progress: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,19 +46,17 @@ class NewsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        progress = ProgressDialog(context)
-        progress?.setMessage("Loading Data")
         binding.rvNews.layoutManager = LinearLayoutManager(requireContext())
-
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiUpdates.collectLatest { it ->
                     when (it) {
                         is ResponseModel.Error -> {
                             Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                         }
                         is ResponseModel.Idle -> {
-
+                            Toast.makeText(requireContext(), "Idle State", Toast.LENGTH_SHORT)
+                                .show()
                         }
                         is ResponseModel.Loading -> {
                             showDialog()
@@ -82,14 +82,16 @@ class NewsFragment : Fragment() {
         }
 
         viewModel.viewModelScope.launch {
-            viewModel.getNews()
+            viewModel.category.collectLatest {
+                viewModel.getNews(it)
+            }
         }
     }
 
     private fun showDialog() {
         viewModel.viewModelScope.launch {
             withContext(Dispatchers.Main) {
-                progress?.show()
+
             }
         }
     }
@@ -97,7 +99,7 @@ class NewsFragment : Fragment() {
     fun dismissDialog() {
         viewModel.viewModelScope.launch {
             withContext(Dispatchers.Main) {
-                progress?.hide()
+
             }
         }
     }
