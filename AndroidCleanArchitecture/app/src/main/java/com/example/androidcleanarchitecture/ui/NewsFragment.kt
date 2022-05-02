@@ -16,8 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidcleanarchitecture.R
 import com.example.androidcleanarchitecture.adapter.NewsListAdapter
 import com.example.androidcleanarchitecture.databinding.FragmentNewsBinding
+import com.example.androidcleanarchitecture.model.Articles
 import com.example.androidcleanarchitecture.network.ResponseModel
 import com.example.androidcleanarchitecture.viewmodel.NewsViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -71,7 +73,9 @@ class NewsFragment : Fragment() {
                                 ).show()
                             } else {
                                 it.data?.body()?.articles?.let { articles ->
-                                    newsListAdapter = NewsListAdapter(articles)
+                                    newsListAdapter = NewsListAdapter(articles) {
+                                        redirectToDetails(it)
+                                    }
                                     binding.rvNews.adapter = newsListAdapter
                                 }
                             }
@@ -88,10 +92,19 @@ class NewsFragment : Fragment() {
         }
     }
 
+    private fun redirectToDetails(articles: Articles) {
+        viewModel.viewModelScope.launch {
+            articles.url?.let { viewModel.transmitNewsURL(it) }
+        }
+        val bottomNavigationView =
+            activity?.findViewById(R.id.bottom_navigation) as BottomNavigationView
+        bottomNavigationView.selectedItemId = R.id.detailNewsFragment
+    }
+
     private fun showDialog() {
         viewModel.viewModelScope.launch {
             withContext(Dispatchers.Main) {
-
+                Toast.makeText(context, "Loading...", Toast.LENGTH_LONG).show()
             }
         }
     }

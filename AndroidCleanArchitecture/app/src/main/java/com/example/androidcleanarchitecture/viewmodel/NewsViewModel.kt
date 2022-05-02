@@ -16,6 +16,7 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
         MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idle State"))
 
     val category = MutableStateFlow<String>("")
+    val newsURL = MutableStateFlow<String>("")
 
     suspend fun getNews(value : String) {
         uiUpdates.emit(ResponseModel.Loading())
@@ -33,4 +34,7 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
         category.emit(value)
     }
 
+    suspend fun transmitNewsURL(value : String){
+        newsURL.emit(value)
+    }
 }

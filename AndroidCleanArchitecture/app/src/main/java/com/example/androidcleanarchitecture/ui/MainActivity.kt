@@ -21,6 +21,7 @@ import com.example.androidcleanarchitecture.databinding.ActivityMainBinding
 import com.example.androidcleanarchitecture.util.PreferenceKeys
 import com.example.androidcleanarchitecture.viewmodel.NewsViewModel
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -40,7 +41,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         appBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomNavigation.setupWithNavController(navController)
-
         setNavigationViewListener()
     }
 
@@ -85,4 +85,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             newsViewModel.transmitCategory(value)
         }
     }
+
 }

@@ -11,7 +11,7 @@ import com.example.androidcleanarchitecture.model.Articles
 import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
-class NewsListAdapter(private val articleList: ArrayList<Articles>) :
+class NewsListAdapter(private val articleList: ArrayList<Articles>, val onItemClick: (Articles) -> Unit) :
     RecyclerView.Adapter<NewsListAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,6 +33,10 @@ class NewsListAdapter(private val articleList: ArrayList<Articles>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(articleList[position])
+        holder.itemView.setOnClickListener {
+            val article : Articles = articleList[position]
+            onItemClick(article)
+        }
     }
 
     override fun getItemCount(): Int {

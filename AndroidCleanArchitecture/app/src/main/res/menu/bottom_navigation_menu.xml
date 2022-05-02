@@ -8,9 +8,9 @@
         android:title="@string/news" />
 
     <item
-        android:id="@+id/filterFragment"
+        android:id="@+id/detailNewsFragment"
         android:enabled="true"
         android:icon="@drawable/filter"
-        android:title="@string/filter" />
+        android:title="@string/details" />
 
 </menu>
