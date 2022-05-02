@@ -1,6 +1,10 @@
-# Android Clean Architeture (MVVM, Kotlin, Coroutine, Flow, Koin, Retrofit)
+# News App - Android Clean Architeture (MVVM, Kotlin, Coroutine, Flow, Koin, Retrofit)
 
 This is one of my public repository where I tried to create the clean architecture for Android development. The purpose of the project is to build a template Android project, where the necessary things are added properly. As well as I can use this repository as technical task/interview and project template.
+
+Here is some screenshots:
+
+<img src="https://github.com/aliahmedbd/News-App-MVVM-Kotlin-Coroutine--Flow-Koin-Retrofit-/blob/main/news_screen.PNG" alt="" data-canonical-src="https://github.com/aliahmedbd/News-App-MVVM-Kotlin-Coroutine--Flow-Koin-Retrofit-/blob/main/news_screen.PNG" width="200" height="400" />  <img src="https://github.com/aliahmedbd/News-App-MVVM-Kotlin-Coroutine--Flow-Koin-Retrofit-/blob/main/screen_navigation.PNG" alt="" data-canonical-src="https://github.com/aliahmedbd/News-App-MVVM-Kotlin-Coroutine--Flow-Koin-Retrofit-/blob/main/screen_navigation.PNG" width="200" height="400" /> <img src="https://github.com/aliahmedbd/News-App-MVVM-Kotlin-Coroutine--Flow-Koin-Retrofit-/blob/main/screen_details.PNG" alt="" data-canonical-src="https://github.com/aliahmedbd/News-App-MVVM-Kotlin-Coroutine--Flow-Koin-Retrofit-/blob/main/screen_details.PNG" width="200" height="400" /> 
 
 I tried to build this application following these terms. which are:
 
