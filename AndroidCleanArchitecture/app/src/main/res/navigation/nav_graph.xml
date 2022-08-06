@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.androidcleanarchitecture.ui.NewsFragment"
+        android:name="com.example.newsapp.ui.NewsFragment"
         android:label="Latest News"
         tools:layout="@layout/fragment_news" >
         <action
@@ -17,8 +17,13 @@
 
     <fragment
         android:id="@+id/detailNewsFragment"
-        android:name="com.example.androidcleanarchitecture.ui.DetailNewsFragment"
+        android:name="com.example.newsapp.ui.DetailNewsFragment"
         android:label="Details"
         tools:layout="@layout/fragment_detail_news" />
+    <fragment
+        android:id="@+id/searchNewsFragment"
+        android:name="com.example.newsapp.ui.SearchNewsFragment"
+        android:label="Search News"
+        tools:layout="@layout/fragment_search_news" />
 
 </navigation>

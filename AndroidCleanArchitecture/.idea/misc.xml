@@ -13,6 +13,13 @@
         <entry key="..\:/Users/ali.ahmed/AndroidStudioProjects/Technical Task/Android Clean Architecture/AndroidCleanArchitecture/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1796875" />
         <entry key="..\:/Users/ali.ahmed/AndroidStudioProjects/Technical Task/Android Clean Architecture/AndroidCleanArchitecture/app/src/main/res/menu/drawer_menu.xml" value="0.35520833333333335" />
         <entry key="..\:/Users/ali.ahmed/AndroidStudioProjects/Technical Task/Android Clean Architecture/AndroidCleanArchitecture/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3565" />
+        <entry key="app/src/main/res/drawable/bottom_navigation_selector_color.xml" value="0.1365" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_news.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_search_news.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/item_news.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2703125" />
+        <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.2703125" />
       </map>
     </option>
   </component>

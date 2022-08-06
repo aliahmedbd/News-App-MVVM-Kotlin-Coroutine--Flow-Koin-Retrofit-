@@ -8,6 +8,12 @@
         android:title="@string/news" />
 
     <item
+        android:id="@+id/searchNewsFragment"
+        android:enabled="true"
+        android:icon="@drawable/search_news"
+        android:title="@string/search" />
+
+    <item
         android:id="@+id/detailNewsFragment"
         android:enabled="true"
         android:icon="@drawable/filter"

@@ -34,7 +34,11 @@
                 android:id="@+id/bottom_navigation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_200"
+                android:background="@color/color_primary_light"
+                app:itemIconTint="@drawable/bottom_navigation_selector_color"
+                app:itemTextColor="@color/white"
+                app:itemTextAppearanceActive="@style/navTextActive"
+                app:itemTextAppearanceInactive="@style/navTextInactive"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            android:background="@color/color_primary_light"
             app:menu="@menu/drawer_menu"
             android:fitsSystemWindows="true" />
     </androidx.drawerlayout.widget.DrawerLayout>
