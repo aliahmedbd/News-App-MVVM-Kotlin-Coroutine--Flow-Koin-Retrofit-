@@ -73,9 +73,10 @@ class NewsFragment : Fragment() {
                                 ).show()
                             } else {
                                 it.data?.body()?.articles?.let { articles ->
-                                    newsListAdapter = NewsListAdapter(articles as ArrayList<Articles>) {
-                                        redirectToDetails(it)
-                                    }
+                                    newsListAdapter =
+                                        NewsListAdapter(articles as ArrayList<Articles>, R.layout.item_news) {
+                                            redirectToDetails(it)
+                                        }
                                     binding.rvNews.adapter = newsListAdapter
                                 }
                             }
@@ -86,15 +87,20 @@ class NewsFragment : Fragment() {
         }
 
         viewModel.viewModelScope.launch {
-            viewModel.category.collectLatest {
-                viewModel.getNews(it)
+            viewModel.category.collectLatest { category ->
+                viewModel.keyword.collectLatest { keyword ->
+                    if (keyword.isNotEmpty())
+                        viewModel.getNews(category, keyword)
+                    else
+                        viewModel.getNews(category, "all")
+                }
             }
         }
     }
 
     private fun redirectToDetails(articles: Articles) {
         viewModel.viewModelScope.launch {
-            articles.link?.let { viewModel.transmitNewsURL(it) }
+            articles.link.let { viewModel.transmitNewsURL(it) }
         }
         val bottomNavigationView =
             activity?.findViewById(R.id.bottom_navigation) as BottomNavigationView
@@ -109,7 +115,7 @@ class NewsFragment : Fragment() {
         }
     }
 
-    fun dismissDialog() {
+    private fun dismissDialog() {
         viewModel.viewModelScope.launch {
             withContext(Dispatchers.Main) {
 

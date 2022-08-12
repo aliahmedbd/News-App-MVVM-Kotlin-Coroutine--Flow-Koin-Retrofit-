@@ -7,4 +7,5 @@ object URL {
     const val baseURL : String = BuildConfig.BASE_URL
 
     const val GET_NEWS = "search"
+    const val GET_LATEST_NEWS = "latest_headlines"
 }

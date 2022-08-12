@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/searchNewsFragment"
+        android:enabled="true"
+        android:icon="@drawable/search_news"
+        android:title="@string/search" />
 
     <item
         android:id="@+id/newsFragment"
         android:enabled="true"
         android:icon="@drawable/all_news"
         android:title="@string/news" />
-
-    <item
-        android:id="@+id/searchNewsFragment"
-        android:enabled="true"
-        android:icon="@drawable/search_news"
-        android:title="@string/search" />
 
     <item
         android:id="@+id/detailNewsFragment"

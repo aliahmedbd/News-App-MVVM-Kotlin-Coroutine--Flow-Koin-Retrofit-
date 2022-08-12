@@ -13,6 +13,7 @@ import java.util.ArrayList
 
 class NewsListAdapter(
     private val articleList: ArrayList<Articles>,
+    private val resource: Int,
     val onItemClick: (Articles) -> Unit
 ) :
     RecyclerView.Adapter<NewsListAdapter.ViewHolder>() {
@@ -23,14 +24,14 @@ class NewsListAdapter(
             val txtHeader = itemView.findViewById(R.id.txtNewsHeader) as TextView
             val txtSubHeader = itemView.findViewById(R.id.txtSubHeader) as TextView
 
-            txtHeader.text = articles.excerpt
-            txtSubHeader.text = articles.summary
+            txtHeader.text = articles.title
+            txtSubHeader.text = articles.excerpt
             Picasso.get().load(articles.media).into(imgNews)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(resource, parent, false)
         return ViewHolder(view)
     }
 

@@ -12,15 +12,19 @@ import retrofit2.Response
 
 class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
 
-     val uiUpdates =
+    val uiUpdates =
         MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idle State"))
 
-    val category = MutableStateFlow<String>("")
-    val newsURL = MutableStateFlow<String>("")
+    val latestHeadlineUpdate =
+        MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idle State"))
 
-    suspend fun getNews(value : String) {
+    val category = MutableStateFlow("")
+    val newsURL = MutableStateFlow("")
+    val keyword = MutableStateFlow("")
+
+    suspend fun getNews(value: String, query: String?) {
         uiUpdates.emit(ResponseModel.Loading())
-        dataRepo.getNewsFromNetwork(value).collect {
+        dataRepo.getNewsFromNetwork(value, query).collect {
             viewModelScope.launch {
                 if (it.isSuccessful)
                     uiUpdates.emit(ResponseModel.Success(it))
@@ -30,11 +34,29 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
         }
     }
 
-    suspend fun transmitCategory(value : String){
+    suspend fun getLatestHeadline(country: String?= "UK") {
+        latestHeadlineUpdate.emit(ResponseModel.Loading())
+        dataRepo.getLatestHeadlines(country).collect {
+            viewModelScope.launch {
+                if (it.isSuccessful)
+                    latestHeadlineUpdate.emit(ResponseModel.Success(it))
+                else
+                    latestHeadlineUpdate.emit(ResponseModel.Error(it.message()))
+            }
+        }
+    }
+
+
+
+    suspend fun transmitCategory(value: String) {
         category.emit(value)
     }
 
-    suspend fun transmitNewsURL(value : String){
+    suspend fun transmitNewsURL(value: String) {
         newsURL.emit(value)
+    }
+
+    suspend fun transmitKeyword(value: String) {
+        keyword.emit(value)
     }
 }

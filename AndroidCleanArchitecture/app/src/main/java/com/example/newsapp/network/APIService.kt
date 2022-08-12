@@ -1,6 +1,7 @@
 package com.example.newsapp.network
 
 import com.example.newsapp.model.NewsMainResponse
+import com.example.newsapp.model.UserInput
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -11,12 +12,16 @@ import java.util.*
 
 interface APIService {
     @GET(URL.GET_NEWS)
-    @Headers("x-api-key: 1U9CeisPCnXgoZUOJqsDN0KDHY3FkXwvw1Lgu2BPTiw"  )
+    @Headers("x-api-key: 1U9CeisPCnXgoZUOJqsDN0KDHY3FkXwvw1Lgu2BPTiw")
     suspend fun getNews(
         @Query("q") query: String? = "all",
-//        @Query("from") from: String? = SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().time),
         @Query("topic") category: String? = "",
-//        @Query("sortBy") sortBy: String? = "publishedAt",
-//        @Query("apiKey") apiKey: String? = URL.apiKey
+    ): Response<NewsMainResponse>
+
+    @GET(URL.GET_LATEST_NEWS)
+    @Headers("x-api-key: 1U9CeisPCnXgoZUOJqsDN0KDHY3FkXwvw1Lgu2BPTiw")
+    suspend fun getLatestHeadline(
+        @Query("countries") countries : String? = "UK",
+        @Query("page_size") pageSize : Int? = 10
     ) : Response<NewsMainResponse>
 }

@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName
 
 
 data class NewsMainResponse(
-
     @SerializedName("status") val status : String,
     @SerializedName("total_hits") val totalHits : Int,
     @SerializedName("page") val page : Int,
@@ -13,5 +12,4 @@ data class NewsMainResponse(
     @SerializedName("page_size") val pageSize : Int,
     @SerializedName("articles") val articles : List<Articles>,
     @SerializedName("user_input") val userInput : UserInput
-
 )

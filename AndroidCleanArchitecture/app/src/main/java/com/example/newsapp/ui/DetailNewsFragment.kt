@@ -8,16 +8,18 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.newsapp.R
 import com.example.newsapp.databinding.FragmentDetailNewsBinding
 import com.example.newsapp.viewmodel.NewsViewModel
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class DetailNewsFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailNewsBinding
-    private val viewModel : NewsViewModel by sharedViewModel()
+    private val viewModel: NewsViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +27,11 @@ class DetailNewsFragment : Fragment() {
     ): View? {
         binding =
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_detail_news, null, false)
-        loadURL("https://www.breitbart.com/politics/2022/05/01/watch-live-donald-trump-holds-save-america-rally-in-greenwood-nebraska/")
+        lifecycleScope.launch {
+            viewModel.newsURL.collect {
+                loadURL(it)
+            }
+        }
         return binding.root
     }
 
@@ -33,13 +39,6 @@ class DetailNewsFragment : Fragment() {
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.webViewClient = WebViewClient()
         binding.webView.loadUrl(url)
-    }
-
-    class WebViewController : WebViewClient() {
-        override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-            view.loadUrl(url)
-            return true
-        }
     }
 }
 

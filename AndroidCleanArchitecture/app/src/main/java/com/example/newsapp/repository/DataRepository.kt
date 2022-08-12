@@ -8,9 +8,16 @@ import retrofit2.Response
 
 class DataRepository(var networkModule: NetworkModule) {
 
-    suspend fun getNewsFromNetwork(category : String): Flow<Response<NewsMainResponse>> {
+    suspend fun getNewsFromNetwork(category : String, query: String?): Flow<Response<NewsMainResponse>> {
         return flow<Response<NewsMainResponse>> {
-            val response = networkModule.sourceOfNetwork().getNews(category = category)
+            val response = networkModule.sourceOfNetwork().getNews(category = category, query = query)
+            emit(response)
+        }
+    }
+
+    suspend fun getLatestHeadlines(country : String?= "UK"): Flow<Response<NewsMainResponse>> {
+        return flow<Response<NewsMainResponse>> {
+            val response = networkModule.sourceOfNetwork().getLatestHeadline(country)
             emit(response)
         }
     }
