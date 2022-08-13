@@ -9,7 +9,7 @@
         android:id="@+id/newsFragment"
         android:name="com.example.newsapp.ui.NewsFragment"
         android:label="Latest News"
-        tools:layout="@layout/fragment_news" >
+        tools:layout="@layout/fragment_news">
         <action
             android:id="@+id/action_newsFragment_to_detailNewsFragment"
             app:destination="@id/detailNewsFragment" />
@@ -25,5 +25,10 @@
         android:name="com.example.newsapp.ui.SearchNewsFragment"
         android:label="Search News"
         tools:layout="@layout/fragment_search_news" />
+    <fragment
+        android:id="@+id/favoriteNewsFragment"
+        android:name="com.example.newsapp.ui.FavoriteNewsFragment"
+        android:label="Favorite News"
+        tools:layout="@layout/fragment_favorite_news" />
 
 </navigation>

@@ -1,6 +1,6 @@
 package com.example.newsapp.ui
 
-import Articles
+import Article
 import android.content.Context
 import android.os.Bundle
 import android.telephony.TelephonyManager
@@ -70,8 +70,9 @@ class SearchNewsFragment : Fragment() {
         }
     }
 
-    private fun receiveLatestHeadline(){
-        binding.rvLatestNews.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    private fun receiveLatestHeadline() {
+        binding.rvLatestNews.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 newsViewModel.latestHeadlineUpdate.collectLatest { it ->
@@ -97,9 +98,21 @@ class SearchNewsFragment : Fragment() {
                             } else {
                                 it.data?.body()?.articles?.let { articles ->
                                     newsListAdapter =
-                                        NewsListAdapter(articles as ArrayList<Articles>, R.layout.item_latest_headlines) {
-                                            redirectToDetails(it)
-                                        }
+                                        NewsListAdapter(
+                                            articleList = articles as ArrayList<Article>,
+                                            resource = R.layout.item_latest_headlines,
+                                            onItemClick = {
+                                                redirectToDetails(it)
+                                            },
+                                            onFavItemClick = {
+                                                context?.let { ctx ->
+                                                    newsViewModel.saveArticle(
+                                                        it,
+                                                        ctx
+                                                    )
+                                                }
+                                            }
+                                        )
                                     binding.rvLatestNews.adapter = newsListAdapter
                                 }
                             }
@@ -110,9 +123,9 @@ class SearchNewsFragment : Fragment() {
         }
     }
 
-    private fun redirectToDetails(articles: Articles) {
+    private fun redirectToDetails(articles: Article) {
         newsViewModel.viewModelScope.launch {
-            articles.link.let { newsViewModel.transmitNewsURL(it) }
+            articles.link.let { it?.let { it1 -> newsViewModel.transmitNewsURL(it1) } }
         }
         val bottomNavigationView =
             activity?.findViewById(R.id.bottom_navigation) as BottomNavigationView

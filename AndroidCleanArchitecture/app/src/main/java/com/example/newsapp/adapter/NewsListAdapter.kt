@@ -1,6 +1,7 @@
 package com.example.newsapp.adapter
 
-import Articles
+import Article
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,18 +13,19 @@ import com.squareup.picasso.Picasso
 import java.util.ArrayList
 
 class NewsListAdapter(
-    private val articleList: ArrayList<Articles>,
+    private val articleList: ArrayList<Article>,
     private val resource: Int,
-    val onItemClick: (Articles) -> Unit
+    val onItemClick: ((Article) -> Unit)?,
+    val onFavItemClick: ((Article) -> Unit)?
 ) :
     RecyclerView.Adapter<NewsListAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindItems(articles: Articles) {
-            val imgNews = itemView.findViewById(R.id.imgNewsPhoto) as ImageView
-            val txtHeader = itemView.findViewById(R.id.txtNewsHeader) as TextView
-            val txtSubHeader = itemView.findViewById(R.id.txtSubHeader) as TextView
-
+        val imgNews = itemView.findViewById(R.id.imgNewsPhoto) as ImageView
+        val txtHeader = itemView.findViewById(R.id.txtNewsHeader) as TextView
+        val txtSubHeader = itemView.findViewById(R.id.txtSubHeader) as TextView
+        val imgFav = itemView.findViewById(R.id.imgFavorite) as ImageView
+        fun bindItems(articles: Article) {
             txtHeader.text = articles.title
             txtSubHeader.text = articles.excerpt
             Picasso.get().load(articles.media).into(imgNews)
@@ -38,8 +40,13 @@ class NewsListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(articleList[position])
         holder.itemView.setOnClickListener {
-            val article: Articles = articleList[position]
-            onItemClick(article)
+            val article: Article = articleList[position]
+            onItemClick?.let { it1 -> it1(article) }
+        }
+
+        holder.imgFav.setOnClickListener {
+            val article: Article = articleList[position]
+            onFavItemClick?.let { it1 -> it1(article) }
         }
     }
 

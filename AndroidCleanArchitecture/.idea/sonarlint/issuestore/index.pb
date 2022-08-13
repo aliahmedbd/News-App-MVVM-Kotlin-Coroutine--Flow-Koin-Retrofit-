@@ -9,8 +9,6 @@ h
 8app/src/test/java/com/example/newsapp/ExampleUnitTest.kt,3/d/3d10d0496bed87934482f1ad2be462f77e4be482
 h
 8app/src/main/java/com/example/newsapp/MainApplication.kt,7/b/7bf8b4fe9c7f8972abcf7f961447e32ae2b5627e
-l
-<app/src/main/java/com/example/newsapp/util/PreferenceKeys.kt,2/9/29d0fe2b0d6dffabdf2ae9104d269231869e5a3a
 n
 >app/src/main/java/com/example/newsapp/network/ResponseModel.kt,d/b/dbd1ae5836f06945b635d292e30629b6611d601b
 h
@@ -19,5 +17,3 @@ h
 8app/src/main/java/com/example/newsapp/model/UserInput.kt,d/d/dd40cdba124a7f6b40ef9ffc970012a6c3337faf
 f
 6app/src/main/java/com/example/newsapp/di/MainModule.kt,7/4/746dc8ba4a9d5205d30b41d75e669f23ad2047de
-g
-7app/src/main/java/com/example/newsapp/model/Articles.kt,b/c/bc41f04c13946bc75a79028245346c840cd1a363

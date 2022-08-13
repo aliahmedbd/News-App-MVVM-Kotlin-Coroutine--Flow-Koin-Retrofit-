@@ -1,15 +1,15 @@
 package com.example.newsapp.model
 
-import Articles
+import Article
 import com.google.gson.annotations.SerializedName
 
 
 data class NewsMainResponse(
-    @SerializedName("status") val status : String,
-    @SerializedName("total_hits") val totalHits : Int,
-    @SerializedName("page") val page : Int,
-    @SerializedName("total_pages") val totalPages : Int,
-    @SerializedName("page_size") val pageSize : Int,
-    @SerializedName("articles") val articles : List<Articles>,
-    @SerializedName("user_input") val userInput : UserInput
+    @SerializedName("status") val status: String? = null,
+    @SerializedName("total_hits") val totalHits: Int? = null,
+    @SerializedName("page") val page: Int? = null,
+    @SerializedName("total_pages") val totalPages: Int? = null,
+    @SerializedName("page_size") val pageSize: Int? = null,
+    @SerializedName("articles") val articles: List<Article>? = null,
+    @SerializedName("user_input") val userInput: UserInput? = null
 )

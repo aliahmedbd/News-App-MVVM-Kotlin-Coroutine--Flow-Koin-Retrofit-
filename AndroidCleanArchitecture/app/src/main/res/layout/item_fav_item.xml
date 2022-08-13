@@ -12,33 +12,36 @@
 
     <ImageView
         android:id="@+id/imgNewsPhoto"
-        android:layout_width="match_parent"
-        android:layout_height="100sp"
-        android:background="#F5F5F5"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:alpha="0.5"
+        android:background="@drawable/all_news"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtNewsHeader"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="Header"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgNewsPhoto" />
+        app:layout_constraintStart_toEndOf="@+id/imgNewsPhoto"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtSubHeader"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="Sub-header"
         android:textColor="@color/black"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgNewsPhoto"
         app:layout_constraintTop_toBottomOf="@+id/txtNewsHeader" />
 
 
@@ -48,6 +51,7 @@
         android:layout_height="30sp"
         android:layout_margin="8sp"
         android:src="@drawable/ic_baseline_favorite_border_24"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

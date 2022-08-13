@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="250sp"
-    android:padding="15sp"
-    android:background="@color/white"
+    android:layout_height="wrap_content"
     android:layout_marginEnd="8sp"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:padding="15sp">
+
+    <ImageView
+        android:id="@+id/imgFavorite"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:layout_gravity="end"
+        android:layout_margin="8sp"
+        android:src="@drawable/ic_baseline_favorite_border_24"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/imgNewsPhoto"
         android:layout_width="match_parent"
-        android:background="#F5F5F5"
-        android:layout_height="100sp" />
+        android:layout_height="100sp"
+        android:background="#F5F5F5" />
 
     <TextView
         android:id="@+id/txtNewsHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Header"
         android:layout_marginTop="8sp"
+        android:text="Header"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -28,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8sp"
-        android:textColor="@color/black"
-        android:text="Sub-header" />
+        android:text="Sub-header"
+        android:textColor="@color/black" />
 
 </LinearLayout>

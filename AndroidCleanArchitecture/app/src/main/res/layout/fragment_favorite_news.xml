@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16sp"
+        android:background="@color/back_color"
+        tools:context=".ui.FavoriteNewsFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFavoriteList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/txtEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:drawableTop="@drawable/ic_baseline_favorite_border_24"
+            android:gravity="center"
+            android:text="No item saved"
+            android:visibility="gone" />
+
+    </FrameLayout>
+</layout>

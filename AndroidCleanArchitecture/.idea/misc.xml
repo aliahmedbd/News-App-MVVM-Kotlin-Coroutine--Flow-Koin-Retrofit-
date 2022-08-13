@@ -18,8 +18,10 @@
         <entry key="app/src/main/res/drawable/textinputlayout_outline_color.xml" value="0.1365" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_detail_news.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_favorite_news.xml" value="0.2828689575195313" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_search_news.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/item_fav_item.xml" value="0.26927083333333335" />
         <entry key="app/src/main/res/layout/item_latest_headlines.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/item_news.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2703125" />

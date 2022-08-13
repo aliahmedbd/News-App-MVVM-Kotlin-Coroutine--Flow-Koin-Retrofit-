@@ -1,6 +1,6 @@
 package com.example.newsapp.ui
 
-import Articles
+import Article
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -74,9 +74,20 @@ class NewsFragment : Fragment() {
                             } else {
                                 it.data?.body()?.articles?.let { articles ->
                                     newsListAdapter =
-                                        NewsListAdapter(articles as ArrayList<Articles>, R.layout.item_news) {
-                                            redirectToDetails(it)
-                                        }
+                                        NewsListAdapter(
+                                            articleList = articles as ArrayList<Article>,
+                                            resource = R.layout.item_news,
+                                            onItemClick = {
+                                                redirectToDetails(it)
+                                            },
+                                            onFavItemClick = {
+                                                context?.let { context ->
+                                                    viewModel.saveArticle(
+                                                        it,
+                                                        context
+                                                    )
+                                                }
+                                            })
                                     binding.rvNews.adapter = newsListAdapter
                                 }
                             }
@@ -98,9 +109,9 @@ class NewsFragment : Fragment() {
         }
     }
 
-    private fun redirectToDetails(articles: Articles) {
+    private fun redirectToDetails(articles: Article) {
         viewModel.viewModelScope.launch {
-            articles.link.let { viewModel.transmitNewsURL(it) }
+            articles.link.let { it?.let { it1 -> viewModel.transmitNewsURL(it1) } }
         }
         val bottomNavigationView =
             activity?.findViewById(R.id.bottom_navigation) as BottomNavigationView

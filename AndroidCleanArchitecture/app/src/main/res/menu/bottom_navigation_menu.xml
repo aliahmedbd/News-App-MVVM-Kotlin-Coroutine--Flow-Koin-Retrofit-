@@ -18,4 +18,10 @@
         android:icon="@drawable/filter"
         android:title="@string/details" />
 
+    <item
+        android:id="@+id/favoriteNewsFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_favorite_border_24"
+        android:title="@string/favorite" />
+
 </menu>
