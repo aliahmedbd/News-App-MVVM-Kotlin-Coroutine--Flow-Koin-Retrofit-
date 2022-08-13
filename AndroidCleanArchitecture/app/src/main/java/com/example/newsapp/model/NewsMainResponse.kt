@@ -1,6 +1,5 @@
 package com.example.newsapp.model
 
-import Article
 import com.google.gson.annotations.SerializedName
 
 

@@ -1,6 +1,6 @@
 package com.example.newsapp.viewmodel
 
-import Article
+import com.example.newsapp.model.Article
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
@@ -67,7 +67,7 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
     fun saveArticle(article: Article, context: Context) {
         try {
             val prefArticle =
-                Article(title = article.title, id = article.id)
+                Article(title = article.title, id = article.id, link = article.link)
             val articles = getSavedArticles(context)
             if (articles?.any { it.id == article.id } == true) {
                 Toast.makeText(context, "Already in favorite.", Toast.LENGTH_LONG).show()

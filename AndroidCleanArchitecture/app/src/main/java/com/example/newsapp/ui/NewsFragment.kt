@@ -1,6 +1,6 @@
 package com.example.newsapp.ui
 
-import Article
+import com.example.newsapp.model.Article
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

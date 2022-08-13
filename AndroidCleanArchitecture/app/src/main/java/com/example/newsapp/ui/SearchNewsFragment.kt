@@ -1,6 +1,6 @@
 package com.example.newsapp.ui
 
-import Article
+import com.example.newsapp.model.Article
 import android.content.Context
 import android.os.Bundle
 import android.telephony.TelephonyManager

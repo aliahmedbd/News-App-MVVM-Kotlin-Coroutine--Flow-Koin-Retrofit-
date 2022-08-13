@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/searchNewsFragment">
+    app:startDestination="@id/newsFragment">
 
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.example.newsapp.ui.NewsFragment"
-        android:label="Latest News"
+        android:label="@string/latest_news"
         tools:layout="@layout/fragment_news">
         <action
             android:id="@+id/action_newsFragment_to_detailNewsFragment"
@@ -18,17 +18,17 @@
     <fragment
         android:id="@+id/detailNewsFragment"
         android:name="com.example.newsapp.ui.DetailNewsFragment"
-        android:label="Details"
+        android:label="@string/details"
         tools:layout="@layout/fragment_detail_news" />
     <fragment
         android:id="@+id/searchNewsFragment"
         android:name="com.example.newsapp.ui.SearchNewsFragment"
-        android:label="Search News"
+        android:label="@string/search_news"
         tools:layout="@layout/fragment_search_news" />
     <fragment
         android:id="@+id/favoriteNewsFragment"
         android:name="com.example.newsapp.ui.FavoriteNewsFragment"
-        android:label="Favorite News"
+        android:label="@string/favorite"
         tools:layout="@layout/fragment_favorite_news" />
 
 </navigation>

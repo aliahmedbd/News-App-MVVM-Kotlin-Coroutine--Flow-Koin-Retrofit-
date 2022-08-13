@@ -54,6 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8sp"
+            tools:listitem="@layout/item_latest_headlines"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
