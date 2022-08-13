@@ -5,7 +5,6 @@ In this repository I tried to create an Android project using Advanced technolog
 ### App Details:
 
 ![newsScreen](https://user-images.githubusercontent.com/11981999/184511606-46f6e8d5-4e9e-45f2-ba04-d74442626f35.png)
-![Screenshot 2022-08-13 at 22 59 01](https://user-images.githubusercontent.com/11981999/184512044-bb0fd270-8b87-4e45-a5c6-d44f1eafda39.png)
 ![Screenshot 2022-08-13 at 22 40 57](https://user-images.githubusercontent.com/11981999/184511633-5042d6ec-44f7-4120-8577-973606a884a8.png)
 ![Screenshot 2022-08-13 at 22 41 32](https://user-images.githubusercontent.com/11981999/184511648-658c1d5c-96aa-4186-acf1-9d9cd7229482.png)
 
