@@ -2,9 +2,7 @@ package com.example.newsapp.model
 import com.google.gson.annotations.SerializedName
 
 data class Article(
-
     @SerializedName("title") val title: String? = null,
-    // @SerializedName("author") val author : String,
     @SerializedName("published_date") val publishedDate: String? = null,
     @SerializedName("published_date_precision") val publishedDatePrecision: String? = null,
     @SerializedName("link") val link: String? = null,
@@ -16,7 +14,6 @@ data class Article(
     @SerializedName("topic") val topic: String? = null,
     @SerializedName("country") val country: String? = null,
     @SerializedName("language") val language: String? = null,
-    //@SerializedName("authors") val authors : List<String>,
     @SerializedName("media") val media: String? = null,
     @SerializedName("is_opinion") val isOpinion: Boolean? = null,
     @SerializedName("twitter_account") val twitterAccount: String? = null,

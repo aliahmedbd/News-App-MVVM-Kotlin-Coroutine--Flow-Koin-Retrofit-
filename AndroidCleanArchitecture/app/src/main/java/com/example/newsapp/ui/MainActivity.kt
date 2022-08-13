@@ -23,7 +23,6 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding

@@ -25,7 +25,6 @@ import kotlinx.coroutines.withContext
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.*
 
-
 class SearchNewsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null

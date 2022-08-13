@@ -1,14 +1,10 @@
 package com.example.newsapp.network
 
 import com.example.newsapp.model.NewsMainResponse
-import com.example.newsapp.model.UserInput
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.Query
-import java.text.SimpleDateFormat
-import java.util.*
 
 interface APIService {
     @GET(URL.GET_NEWS)

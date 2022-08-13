@@ -1,15 +1,13 @@
 package com.example.newsapp
 
 import android.content.Context
-import androidx.lifecycle.ViewModel
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.newsapp.model.Article
 import com.example.newsapp.util.clearSharedPreference
-import com.example.newsapp.util.saveCompanyDetailsSharedPref
 import com.example.newsapp.viewmodel.NewsViewModel
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import org.junit.Assert.*
 
 class FavoriteNewsTest {
 

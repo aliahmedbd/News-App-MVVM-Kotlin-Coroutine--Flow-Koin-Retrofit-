@@ -2,7 +2,6 @@ package com.example.newsapp.util
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.newsapp.model.Article
 import com.example.newsapp.model.NewsMainResponse
 import com.google.gson.Gson
 
