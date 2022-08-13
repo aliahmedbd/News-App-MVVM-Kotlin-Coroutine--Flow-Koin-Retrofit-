@@ -1,6 +1,6 @@
 package com.example.newsapp.util
 
-object PreferenceKeys {
+object NewsCategory {
     private val NEWS_CATEGORY = "news_category"
 
     const val BUSINESS = "business"

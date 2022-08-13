@@ -11,9 +11,10 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
-            android:src="@drawable/search"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:src="@drawable/world_news"
+            android:layout_marginTop="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/search_keyword"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView">
 

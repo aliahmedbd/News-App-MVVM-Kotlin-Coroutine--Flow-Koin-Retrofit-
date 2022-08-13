@@ -17,7 +17,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.newsapp.R
 import com.example.newsapp.databinding.ActivityMainBinding
-import com.example.newsapp.util.PreferenceKeys
+import com.example.newsapp.util.NewsCategory
 import com.example.newsapp.viewmodel.NewsViewModel
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.launch
@@ -59,19 +59,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 transmitCategory("")
             }
             R.id.itemBusiness -> {
-                transmitCategory(PreferenceKeys.BUSINESS)
+                transmitCategory(NewsCategory.BUSINESS)
             }
             R.id.itemHealth -> {
-                transmitCategory(PreferenceKeys.HEALTH)
+                transmitCategory(NewsCategory.HEALTH)
             }
             R.id.itemSports -> {
-                transmitCategory(PreferenceKeys.SPORTS)
+                transmitCategory(NewsCategory.SPORTS)
             }
             R.id.itemTechnology -> {
-                transmitCategory(PreferenceKeys.TECHNOLOGY)
+                transmitCategory(NewsCategory.TECHNOLOGY)
             }
             R.id.itemEntertainment -> {
-                transmitCategory(PreferenceKeys.ENTERTAINMENT)
+                transmitCategory(NewsCategory.ENTERTAINMENT)
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)

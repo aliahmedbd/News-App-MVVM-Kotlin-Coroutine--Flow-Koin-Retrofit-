@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
+class NewsViewModel(private var dataRepo: DataRepository?) : ViewModel() {
 
     val uiUpdates =
         MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idle State"))
@@ -29,7 +29,7 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
 
     suspend fun getNews(value: String, query: String?) {
         uiUpdates.emit(ResponseModel.Loading())
-        dataRepo.getNewsFromNetwork(value, query).collect {
+        dataRepo?.getNewsFromNetwork(value, query)?.collect {
             viewModelScope.launch {
                 if (it.isSuccessful)
                     uiUpdates.emit(ResponseModel.Success(it))
@@ -41,7 +41,7 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
 
     suspend fun getLatestHeadline(country: String? = "UK") {
         latestHeadlineUpdate.emit(ResponseModel.Loading())
-        dataRepo.getLatestHeadlines(country).collect {
+        dataRepo?.getLatestHeadlines(country)?.collect {
             viewModelScope.launch {
                 if (it.isSuccessful)
                     latestHeadlineUpdate.emit(ResponseModel.Success(it))
@@ -69,7 +69,7 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
             val prefArticle =
                 Article(title = article.title, id = article.id, link = article.link)
             val articles = getSavedArticles(context)
-            if (articles?.any { it.id == article.id } == true) {
+            if (isNewsAlreadySaved(article, context)) {
                 Toast.makeText(context, "Already in favorite.", Toast.LENGTH_LONG).show()
             } else {
                 articles?.add(prefArticle)
@@ -89,5 +89,10 @@ class NewsViewModel(private var dataRepo: DataRepository) : ViewModel() {
             return it.articles as ArrayList
         }
         return ArrayList()
+    }
+
+    fun isNewsAlreadySaved(article : Article, context : Context) : Boolean{
+        val articles = getSavedArticles(context)
+        return articles?.any { it.id == article.id } == true
     }
 }
