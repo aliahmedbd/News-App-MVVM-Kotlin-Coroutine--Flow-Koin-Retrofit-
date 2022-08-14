@@ -8,6 +8,12 @@ In this repository I tried to create an Android project using Advanced technolog
 ![Screenshot 2022-08-13 at 22 40 57](https://user-images.githubusercontent.com/11981999/184511633-5042d6ec-44f7-4120-8577-973606a884a8.png)
 ![Screenshot 2022-08-13 at 22 41 32](https://user-images.githubusercontent.com/11981999/184511648-658c1d5c-96aa-4186-acf1-9d9cd7229482.png)
 
+#### Features:
+1. <b>News list</b>: User can read the latest news based on their location.
+2. <b>Search News</b>: User can search news according to the keyword where user can see the latest headlines.
+3. <b>Save Favorite News</b>: User can save the interesting news in the favorite section.
+4. From the drawer menu user can read news according to the category.
+
 ### Used Technologies
 
 I tried to build this application following these terms. which are:
