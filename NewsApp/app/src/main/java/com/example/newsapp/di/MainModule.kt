@@ -17,6 +17,6 @@ val appModule = module {
 
 class NetworkModule(val context: Context) {
     fun sourceOfNetwork(): APIService {
-        return APIClient.create()
+        return APIClient.create(context)
     }
 }

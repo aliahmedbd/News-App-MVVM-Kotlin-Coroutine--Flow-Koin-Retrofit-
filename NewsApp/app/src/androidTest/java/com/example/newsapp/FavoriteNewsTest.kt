@@ -2,7 +2,6 @@ package com.example.newsapp
 
 import android.content.Context
 import androidx.test.platform.app.InstrumentationRegistry
-import com.example.newsapp.model.Article
 import com.example.newsapp.util.clearSharedPreference
 import com.example.newsapp.viewmodel.NewsViewModel
 import org.junit.Assert.assertEquals

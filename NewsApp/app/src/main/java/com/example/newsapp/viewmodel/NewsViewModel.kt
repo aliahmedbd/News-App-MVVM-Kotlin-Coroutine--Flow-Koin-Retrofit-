@@ -1,12 +1,12 @@
 package com.example.newsapp.viewmodel
 
-import com.example.newsapp.model.Article
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.model.NewsMainResponse
+import com.example.newsapp.datamodel.Article
+import com.example.newsapp.datamodel.NewsResponse
 import com.example.newsapp.network.ResponseModel
 import com.example.newsapp.repository.DataRepository
 import com.example.newsapp.util.getCompanyDetailsSharedPref
@@ -18,10 +18,10 @@ import retrofit2.Response
 class NewsViewModel(private var dataRepo: DataRepository?) : ViewModel() {
 
     val uiUpdates =
-        MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idle State"))
+        MutableStateFlow<ResponseModel<Response<NewsResponse>>>(ResponseModel.Idle("Idle State"))
 
     val latestHeadlineUpdate =
-        MutableStateFlow<ResponseModel<Response<NewsMainResponse>>>(ResponseModel.Idle("Idle State"))
+        MutableStateFlow<ResponseModel<Response<NewsResponse>>>(ResponseModel.Idle("Idle State"))
 
     val category = MutableStateFlow("")
     val newsURL = MutableStateFlow("")
@@ -73,8 +73,8 @@ class NewsViewModel(private var dataRepo: DataRepository?) : ViewModel() {
                 Toast.makeText(context, "Already in favorite.", Toast.LENGTH_LONG).show()
             } else {
                 articles?.add(prefArticle)
-                val newsMainResponse = NewsMainResponse(articles = articles)
-                context.saveCompanyDetailsSharedPref(newsMainResponse)
+                val newsMainResponse = articles?.let { NewsResponse(articles = it) }
+                newsMainResponse?.let { context.saveCompanyDetailsSharedPref(it) }
                 Toast.makeText(context, "Saved in favorite list.", Toast.LENGTH_LONG).show()
             }
         } catch (e: Exception) {

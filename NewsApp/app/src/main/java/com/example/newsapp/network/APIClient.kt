@@ -1,7 +1,12 @@
 package com.example.newsapp.network
 
+import android.content.Context
+import androidx.viewbinding.BuildConfig
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.newsapp.network.URL.baseURL
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,18 +15,12 @@ class APIClient {
     companion object {
         private const val BASE_URL = baseURL
 
-        fun create(): APIService {
-            val logger =
-                HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
-
-            val client = OkHttpClient.Builder()
-                .addInterceptor(logger)
-                .addNetworkInterceptor{ chain ->
-                    val request = chain.request()
-                    request.newBuilder().addHeader("x-api-key", "1U9CeisPCnXgoZUOJqsDN0KDHY3FkXwvw1Lgu2BPTiw").build()
-                    chain.proceed(request)
-                }
-                .build()
+        fun create(context: Context): APIService {
+            val client = OkHttpClient.Builder().apply {
+                addInterceptor(BaseHeadersInterceptor())
+                addInterceptor(ChuckerInterceptor(context = context))
+                addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            }.build()
 
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -30,5 +29,14 @@ class APIClient {
                 .build()
                 .create(APIService::class.java)
         }
+    }
+}
+
+class BaseHeadersInterceptor : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request().newBuilder().apply {
+            header("x-api-key", URL.apiKey)
+        }.build()
+        return chain.proceed(request)
     }
 }

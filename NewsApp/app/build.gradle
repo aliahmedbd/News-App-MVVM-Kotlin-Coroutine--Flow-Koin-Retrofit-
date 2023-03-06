@@ -19,7 +19,7 @@ android {
     buildTypes {
         release {
             buildConfigField "String", "BASE_URL", '"https://api.newscatcherapi.com/v2/"'
-            buildConfigField "String", "API_KEY", '"83352fa505244e1c86f36d6af0ac59bb"'
+            buildConfigField "String", "API_KEY", '"rDC4kY_K6O4Y4yVaD_JEvJD__-I5SpIky6AG8Ikynpg"'
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -27,12 +27,12 @@ android {
 
         debug {
             buildConfigField "String", "BASE_URL", '"https://api.newscatcherapi.com/v2/"'
-            buildConfigField "String", "API_KEY", '"83352fa505244e1c86f36d6af0ac59bb"'
+            buildConfigField "String", "API_KEY", '"rDC4kY_K6O4Y4yVaD_JEvJD__-I5SpIky6AG8Ikynpg"'
         }
 
         stagging {
             buildConfigField "String", "BASE_URL", '"https://api.newscatcherapi.com/v2/"'
-            buildConfigField "String", "API_KEY", '"83352fa505244e1c86f36d6af0ac59bb"'
+            buildConfigField "String", "API_KEY", '"rDC4kY_K6O4Y4yVaD_JEvJD__-I5SpIky6AG8Ikynpg"'
         }
     }
     compileOptions {
@@ -85,4 +85,8 @@ dependencies {
 
     //data store
     implementation "androidx.datastore:datastore-preferences-core:1.0.0"
+
+    //Chucker
+    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
 }

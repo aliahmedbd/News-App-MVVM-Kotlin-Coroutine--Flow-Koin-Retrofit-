@@ -1,6 +1,5 @@
 package com.example.newsapp.ui
 
-import com.example.newsapp.model.Article
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.R
 import com.example.newsapp.adapter.NewsListAdapter
 import com.example.newsapp.databinding.FragmentNewsBinding
+import com.example.newsapp.datamodel.Article
 import com.example.newsapp.network.ResponseModel
 import com.example.newsapp.viewmodel.NewsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
