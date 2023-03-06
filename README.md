@@ -1,6 +1,6 @@
 # News App using MVVM, Kotlin, Coroutine, Flows, Koin, Unit Test
 
-In this repository I tried to create an Android project using Advanced technologies like MVVM design pattern, Kotlin (Koin, Coroutine, Flows) etc. The purpose of creating this repository to use in technical test/interview and personal usage for the best Android app development practice.
+In this repository I tried to create an Android project using Advanced technologies like MVVM design pattern, Kotlin (Koin, Coroutine, Flows) etc. The purpose of creating this repository to use in technical test / interview and personal usage for the best Android app development practice.
 
 ### App Details:
 
