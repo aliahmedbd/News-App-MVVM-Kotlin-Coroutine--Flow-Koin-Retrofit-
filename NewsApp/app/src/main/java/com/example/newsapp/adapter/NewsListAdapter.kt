@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.R
-import com.example.newsapp.datamodel.Article
+import com.aliahmed.datamodule.datamodel.Article
 import com.squareup.picasso.Picasso
 import java.util.ArrayList
 

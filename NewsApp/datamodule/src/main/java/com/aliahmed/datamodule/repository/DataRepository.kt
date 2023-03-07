@@ -1,7 +1,7 @@
-package com.example.newsapp.repository
+package com.aliahmed.datamodule.repository
 
-import com.example.newsapp.datamodel.NewsResponse
-import com.example.newsapp.di.NetworkModule
+import com.aliahmed.datamodule.datamodel.NewsResponse
+import com.aliahmed.datamodule.di.NetworkModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response

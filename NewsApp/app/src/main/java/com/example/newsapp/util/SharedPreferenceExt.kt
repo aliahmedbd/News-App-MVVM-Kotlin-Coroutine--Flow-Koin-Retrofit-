@@ -2,7 +2,7 @@ package com.example.newsapp.util
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.newsapp.datamodel.NewsResponse
+import com.aliahmed.datamodule.datamodel.NewsResponse
 import com.google.gson.Gson
 
 const val SHARED_PREF_NAME = "NEWS"

@@ -1,4 +1,4 @@
-package com.example.newsapp.network
+package com.aliahmed.datamodule.network
 
 sealed class ResponseModel<T>(
     val data: T? = null,

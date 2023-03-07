@@ -1,6 +1,6 @@
-package com.example.newsapp.network
+package com.aliahmed.data.network
 
-import com.example.newsapp.BuildConfig
+import com.aliahmed.data.BuildConfig
 
 object URL {
     const val apiKey : String = BuildConfig.API_KEY

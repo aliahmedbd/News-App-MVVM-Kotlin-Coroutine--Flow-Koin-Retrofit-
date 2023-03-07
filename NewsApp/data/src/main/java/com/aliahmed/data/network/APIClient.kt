@@ -1,9 +1,9 @@
-package com.example.newsapp.network
+package com.aliahmed.data.network
 
 import android.content.Context
 import androidx.viewbinding.BuildConfig
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.example.newsapp.network.URL.baseURL
+import com.aliahmed.data.network.URL.baseURL
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response

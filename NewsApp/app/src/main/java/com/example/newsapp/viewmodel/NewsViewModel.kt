@@ -5,10 +5,10 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.datamodel.Article
-import com.example.newsapp.datamodel.NewsResponse
-import com.example.newsapp.network.ResponseModel
-import com.example.newsapp.repository.DataRepository
+import com.aliahmed.datamodule.datamodel.Article
+import com.aliahmed.datamodule.datamodel.NewsResponse
+import com.aliahmed.datamodule.repository.DataRepository
+import com.aliahmed.datamodule.network.ResponseModel
 import com.example.newsapp.util.getCompanyDetailsSharedPref
 import com.example.newsapp.util.saveCompanyDetailsSharedPref
 import kotlinx.coroutines.flow.MutableStateFlow
