@@ -1,6 +1,6 @@
-package com.example.newsapp.network
+package com.aliahmed.data.network
 
-import com.example.newsapp.datamodel.NewsResponse
+import com.aliahmed.data.datamodel.NewsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

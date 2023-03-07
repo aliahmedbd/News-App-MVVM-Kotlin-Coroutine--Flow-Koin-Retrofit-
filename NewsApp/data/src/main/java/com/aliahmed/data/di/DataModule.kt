@@ -1,18 +1,15 @@
-package com.example.newsapp.di
+package com.aliahmed.data.di
 
 import android.content.Context
-import com.example.newsapp.network.APIClient
-import com.example.newsapp.network.APIService
-import com.example.newsapp.repository.DataRepository
-import com.example.newsapp.viewmodel.NewsViewModel
+import com.aliahmed.data.network.APIClient
+import com.aliahmed.data.network.APIService
+import com.aliahmed.data.repository.DataRepository
 import org.koin.android.ext.koin.androidContext
-import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val appModule = module {
+val dataModule = module {
     single(named("data_repo")) { DataRepository(NetworkModule(androidContext())) }
-    viewModel { NewsViewModel(get(named("data_repo"))) }
 }
 
 class NetworkModule(val context: Context) {
